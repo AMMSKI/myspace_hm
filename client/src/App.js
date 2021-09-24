@@ -1,4 +1,3 @@
-import './App.css';
 import NavBar from './Components/Navbar';
 import { Route, Switch } from 'react-router';
 import { Container } from 'semantic-ui-react'
@@ -11,6 +10,7 @@ import Register from './pages/Register';
 import FetchUser from './Components/FetchUser';
 import ProtectedRoute from './Components/ProtectedRoute';
 import User from './pages/User';
+import './App.css';
 
 function App() {
   return (

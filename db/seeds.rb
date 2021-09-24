@@ -223,7 +223,7 @@ mood = [
     image: "https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F958761228%2F0x0.jpg%3Ffit%3Dscale"
   )
   22.times do |i|
-    chewie.posts.create(text: Faker::Movies::StarWars.wookiee_sentence)
+    chewie.posts.create(text: Faker::Movies::StarWars.wookiee_sentence, mood: "wrrRAAAArgh")
   end
 
   puts "seeded #{User.all.length} users"
