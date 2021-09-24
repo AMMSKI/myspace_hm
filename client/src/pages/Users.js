@@ -30,10 +30,10 @@ const Users = () => {
         <Card.Img src={'https://robohash.org/honey?set=set1'}/>
       <Card.Body>
         <Card.Title>
-      <h1>{u.email}</h1>
+      <h1>{u.name}</h1>
       </Card.Title>
       <Card.Text>
-      <p>{u.id}</p>
+      <p>{u.email}</p>
       </Card.Text>
       </Card.Body>
     </Card>

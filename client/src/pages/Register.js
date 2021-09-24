@@ -14,7 +14,7 @@ const Login = () => {
 
   const handleSubmit = () => {
     if(password === confirmPassword){
-    handleRegister({ email, password}, history)
+    handleRegister({ email, password, name}, history)
     }else{
       alert('Password does not match')
     }
@@ -23,6 +23,13 @@ const Login = () => {
   return (
     <div>
       <Form onSubmit={handleSubmit}>
+        <Form.Input
+        value={name}
+        onChange={(e, { value }) => {
+          setName(value);
+        }}
+        label={"Name"}
+         />
         <Form.Input
         value={email}
         onChange={(e, { value }) => {
