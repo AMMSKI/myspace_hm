@@ -27,10 +27,11 @@ const Users = () => {
      return users.map((u)=> {
     return (
       <Card style={{width: '18em'}}>
-        <Card.Img src={'https://robohash.org/honey?set=set1'}/>
+        <Card.Img src={u.image}/>
       <Card.Body>
         <Card.Title>
       <h1>{u.name}</h1>
+      <Card.Subtitle>{u.nickname}</Card.Subtitle>
       </Card.Title>
       <Card.Text>
       <p>{u.email}</p>

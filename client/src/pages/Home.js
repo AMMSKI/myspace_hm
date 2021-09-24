@@ -13,7 +13,7 @@ const Home = () => {
     <MyButton onClick={()=> setShowForm(!showForm)}> Toggle Form</MyButton>
     {showForm && <EditUser />}
     <div>
-      <img src={'https://robohash.org/honey?set=set1'}/>
+      <img src={user.image}/>
     </div>
     <div>
     <Card>
@@ -22,6 +22,7 @@ const Home = () => {
       <p>{user.name}</p>
       </Card.Title>
       <Card.Text>
+      <Card.Subtitle>{user.nickname}</Card.Subtitle>
       <p>{user.email}</p>
       <p>{user.id}</p>
       </Card.Text>

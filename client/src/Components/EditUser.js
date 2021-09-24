@@ -9,12 +9,13 @@ const EditUser = () => {
   const [email, setEmail] = useState(user.email ? user.email : '')
   const [name, setName] = useState(user.name ? user.name : '')
   const [image, setImage] = useState(user.image ? user.image : '')
+  const [nickname, setNickname] = useState(user.nickname ? user.nickname : '')
 
   const [id, setId] = useState(user.id ? user.id : '')
 
   const handleSubmit = async (e) => {
     try{
-      let res = await axios.put(`/api/users/${user.id}`, { name, email, id, image })
+      let res = await axios.put(`/api/users/${user.id}`, { name, email, id, image, nickname })
       console.log(res)
     }catch(err){
       console.log(err)
@@ -30,6 +31,13 @@ const EditUser = () => {
           setName(value);
         }}
         label={"Name"}
+         />
+         <Form.Input
+        value={nickname}
+        onChange={(e, { value }) => {
+          setNickname(value);
+        }}
+        label={"Nickname"}
          />
         <Form.Input
         value={email}
