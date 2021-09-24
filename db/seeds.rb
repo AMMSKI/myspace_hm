@@ -101,7 +101,7 @@ mood = [
     email: "yoda@email.com",
     password: "123456",
     force_alignment: "light",
-    image: "hhttps://starwarsblog.starwars.com/wp-content/uploads/2015/11/yoda-the-empire-strikes-back-1536x864-349144518002.jpg",
+    image: "https://starwarsblog.starwars.com/wp-content/uploads/2015/11/yoda-the-empire-strikes-back-1536x864-349144518002.jpg",
   )
   4.times do |i|
     yoda.posts.create(text: Faker::Movies::StarWars.quote(character: "yoda"), mood: mood[rand(4)])
@@ -113,7 +113,7 @@ mood = [
     email: "sheev_palpatine@email.com",
     password: "123456",
     force_alignment: "dark",
-    image: "hhttps://static.wikia.nocookie.net/starwars/images/9/9a/Palp_trustme.jpg/revision/latest?cb=20070114040526",
+    image: "https://static.wikia.nocookie.net/starwars/images/9/9a/Palp_trustme.jpg/revision/latest?cb=20070114040526",
   )
   4.times do |i|
     palp.posts.create(text: Faker::Movies::StarWars.quote(character: "emperor_palpatine"), mood: mood[rand(4)])

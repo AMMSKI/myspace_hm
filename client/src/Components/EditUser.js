@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useContext, useState } from 'react'
+import { Card } from 'react-bootstrap'
 import { Form } from 'semantic-ui-react'
 import MyButton from '../Components/MyButton'
 import { AuthContext } from '../providers/AuthProvider'
@@ -23,7 +24,7 @@ const EditUser = () => {
   }
 
   return (
-    <div>
+    <Card>
       <Form onSubmit={handleSubmit}>
       <Form.Input
         value={name}
@@ -48,7 +49,7 @@ const EditUser = () => {
          />
         <MyButton>Edit</MyButton>
       </Form>
-    </div>
+    </Card>
   )
 }
 
