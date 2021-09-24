@@ -113,7 +113,7 @@ mood = [
     email: "sheev_palpatine@email.com",
     password: "123456",
     force_alignment: "dark",
-    image: "https://static.wikia.nocookie.net/starwars/images/d/d8/Emperor_Sidious.png/revision/latest/top-crop/width/360/height/360?cb=20130620100935",
+    image: "https://www.moviemaker.com/wp-content/uploads/2019/12/emperor-palpatine.jpg",
   )
   4.times do |i|
     palp.posts.create(text: Faker::Movies::StarWars.quote(character: "emperor_palpatine"), mood: mood[rand(4)])
