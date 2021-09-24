@@ -8,8 +8,9 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import FetchUser from './Components/FetchUser';
 import ProtectedRoute from './Components/ProtectedRoute';
-import User from './pages/User';
+import Users from './pages/Users';
 import './App.css';
+import styled from 'styled-components';
 
 function App() {
   return (
