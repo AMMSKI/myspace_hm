@@ -153,7 +153,7 @@ mood = [
   mando = User.create(
     name: "The Mandolorian",
     nickname: "Mando",
-    email: "din_djari@email.com",
+    email: "din_djarin@email.com",
     password: "123456",
     force_alignment: "grey",
     image: "https://cdna.artstation.com/p/assets/images/images/031/730/080/large/lee-bryan-mando-portrait-lee-bryan-art-2020.jpg?1604431127"
