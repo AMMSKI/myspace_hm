@@ -7,13 +7,14 @@ import { AuthContext } from '../providers/AuthProvider'
 const Login = () => {
   const { handleRegister } = useContext(AuthContext)
   const [email, setEmail] = useState('test@test.com')
+  const [name, setName] = useState('test name')
   const [password, setPassword] = useState('123456')
   const [confirmPassword, setConfirmPassword] = useState('123456')
   const history = useHistory()
 
   const handleSubmit = () => {
     if(password === confirmPassword){
-    handleRegister({ email, password }, history)
+    handleRegister({ email, password}, history)
     }else{
       alert('Password does not match')
     }

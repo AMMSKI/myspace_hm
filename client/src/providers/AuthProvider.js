@@ -8,8 +8,10 @@ const AuthProvider = (props) => {
   const [user, setUser] = useState(null)
 
   const handleRegister = async (user, history) => {
+    console.log('handleregets', user)
     try{
       let res = await axios.post('/api/auth', user)
+      console.log('res', res)
       setUser(res.data.data)
       history.push('/')
     }catch(err){
@@ -20,7 +22,6 @@ const AuthProvider = (props) => {
   const handleLogin = async (user, history) => {
     try{
       let res = await axios.post('/api/auth/sign_in', user)
-      console.log(res)
       setUser(res.data.data)
       alert('Login succsessful')
       history.push('/')
@@ -36,6 +37,7 @@ const AuthProvider = (props) => {
     localStorage.removeItem("access-token");
     history.push("/login");
   }
+
 
   return (
     <AuthContext.Provider value={{
