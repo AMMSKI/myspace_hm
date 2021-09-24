@@ -3,6 +3,8 @@ import { Card, Button } from 'react-bootstrap'
 import styled from 'styled-components'
 import EditUser from '../Components/EditUser'
 import MyButton from '../Components/MyButton'
+import PostForm from '../Components/PostForm'
+import Posts from '../Components/Posts'
 import { AuthContext } from '../providers/AuthProvider'
 
 const Home = () => {
@@ -34,6 +36,8 @@ const Home = () => {
       </Card.Text>
       </Card.Body>
     </Card>
+    <PostForm id={user.id}/>
+    <Posts user={user}/>
     </div>
     </>
   )}

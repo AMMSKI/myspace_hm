@@ -34,7 +34,7 @@ function App() {
 
 const MyDiv = styled.div`
   background-image: url('https://wallpaperaccess.com/full/1745055.jpg');
-  height: 100vh;
+  height: 200vh;
   width: 100vw;
   background-attachment: fixed;
   overflow: scroll;
