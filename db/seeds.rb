@@ -89,7 +89,7 @@ mood = [
     email: "obi_wan_kenobi@email.com",
     password: "123456",
     force_alignment: "light",
-    image: "https://pbs.twimg.com/profile_images/1011376574250344448/YhbpS7KX_400x400.jpg"
+    image: "https://s.yimg.com/os/creatr-uploaded-images/2021-03/dfc70410-9099-11eb-bfbb-d294b801cc89"
   )
   2.times do |i|
     obi.posts.create(text: Faker::Movies::StarWars.quote(character: "obi_wan_kenobi"), mood: mood[rand(4)])
@@ -113,7 +113,7 @@ mood = [
     email: "sheev_palpatine@email.com",
     password: "123456",
     force_alignment: "dark",
-    image: "https://static.wikia.nocookie.net/starwars/images/9/9a/Palp_trustme.jpg/revision/latest?cb=20070114040526",
+    image: "https://static.wikia.nocookie.net/starwars/images/d/d8/Emperor_Sidious.png/revision/latest/top-crop/width/360/height/360?cb=20130620100935",
   )
   4.times do |i|
     palp.posts.create(text: Faker::Movies::StarWars.quote(character: "emperor_palpatine"), mood: mood[rand(4)])
@@ -142,12 +142,12 @@ mood = [
   end
 
   grogu = User.create(
-    name: "grogu",
+    name: "Grogu",
     nickname: "baby yoda",
     email: "baby_yoda@email.com",
     password: "123456",
     force_alignment: "grey",
-    image: "https://static.wikia.nocookie.net/shaniverse/images/7/7f/Grogu.jpg/revision/latest?cb=20201222173404",
+    image: "https://www.thegreenhead.com/imgs/star-wars-baby-yoda-child-life-size-replica-figure-1.jpg",
   )
 
   mando = User.create(
@@ -164,7 +164,7 @@ mood = [
     email: "darth_maul@email.com",
     password: "123456",
     force_alignment: "dark",
-    image: "https://static.wikia.nocookie.net/starwars/images/5/50/Darth_Maul_profile.png/revision/latest/top-crop/width/360/height/360?cb=20140209162228"
+    image: "https://cdn.vox-cdn.com/thumbor/obqfP8shk4OQeFZz_YxU5VRgW9M=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/19930629/raypark.jpg"
   )
   savage = User.create(
     name: "Savage Opress",
@@ -172,7 +172,7 @@ mood = [
     email: "savage_opress@email.com",
     password: "123456",
     force_alignment: "dark",
-    image: "https://static.wikia.nocookie.net/starwars/images/7/79/Savage_Opress_missing_horn.png/revision/latest?cb=20160131004655"
+    image: "https://i.pinimg.com/originals/90/64/11/906411de649b6dbda7a76aec4a3e5a4a.jpg"
   )
   ahsoka = User.create(
     name: "Ahsoka Tano",
@@ -192,7 +192,7 @@ mood = [
     email: "jyn_erso@email.com",
     password: "123456",
     force_alignment: "light",
-    image: "https://static.wikia.nocookie.net/shaniverse/images/a/a8/Jyn.jpg/revision/latest?cb=20200602171133",
+    image: "https://cdn.vox-cdn.com/thumbor/Ee-2vHfnHaJChS2G2ctOW-jTrPk=/0x0:1600x836/1200x800/filters:focal(672x290:928x546)/cdn.vox-cdn.com/uploads/chorus_image/image/53840887/jyn_erso_1.0.jpg",
   )
   krennic = User.create(
     name: "Orson Callan Krennic",
@@ -208,7 +208,7 @@ mood = [
     email: "grand_moff@email.com",
     password: "123456",
     force_alignment: "dark",
-    image: "https://static.wikia.nocookie.net/starwars/images/c/c1/Tarkininfobox.jpg/revision/latest?cb=20100620213033"
+    image: "https://assets3.thrillist.com/v1/image/1874654/828x610/flatten;crop;jpeg_quality=70"
   )
   3.times do
     tarkin.posts.create(text: Faker::Movies::StarWars.quote(character: "grand_moff_tarkin"), mood: mood[rand(4)])
@@ -220,7 +220,7 @@ mood = [
     email: "chewbacca@email.com",
     password: "123456",
     force_alignment: "grey",
-    image: "https://static.wikia.nocookie.net/starwars/images/4/48/Chewbacca_TLJ.png/revision/latest/top-crop/width/360/height/360?cb=20210106001220"
+    image: "https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F958761228%2F0x0.jpg%3Ffit%3Dscale"
   )
   22.times do |i|
     chewie.posts.create(text: Faker::Movies::StarWars.wookiee_sentence)

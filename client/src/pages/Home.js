@@ -7,7 +7,7 @@ import { AuthContext } from '../providers/AuthProvider'
 
 const Home = () => {
   const { user } = useContext(AuthContext)
-  const [showForm, setShowForm] = useState(true)
+  const [showForm, setShowForm] = useState(false)
 
   
     if(showForm){
