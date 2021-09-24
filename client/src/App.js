@@ -10,10 +10,11 @@ import Register from './pages/Register';
 import FetchUser from './Components/FetchUser';
 import ProtectedRoute from './Components/ProtectedRoute';
 import Users from './pages/Users';
+import styled from 'styled-components';
 
 function App() {
   return (
-    <>
+    <MyDiv>
       <FetchUser>
       <NavBar />
         <Container>
@@ -27,8 +28,16 @@ function App() {
           </Switch>
         </Container>
       </FetchUser>
-    </>
+    </MyDiv>
   );
 }
+
+const MyDiv = styled.div`
+  background-image: url('https://wallpaperaccess.com/full/1745055.jpg');
+  height: 100vh;
+  width: 100vw;
+  background-attachment: fixed;
+  overflow: scroll;
+  `
 
 export default App;

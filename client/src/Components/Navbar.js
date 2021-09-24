@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react'
 import { AuthContext } from '../providers/AuthProvider'
 import { useHistory, useLocation } from 'react-router'
+import styled from 'styled-components'
 
 const NavBar = () => {
   const history = useHistory()
@@ -30,14 +31,29 @@ const NavBar = () => {
   };
 
   return (
-    <Menu>
-      <Link to='/'><Menu.Item active={location.pathname == "/"}>Home</Menu.Item></Link>
-      <Link to='/users'><Menu.Item active={location.pathname == "/users"}>Users</Menu.Item></Link>
+    <Menu className='ui inverted menu' color={'#070805'}>
+      <Menu.Menu>
+      <>
+      <Link to='/'>
+        <Menu.Item active={location.pathname == "/"}>Home</Menu.Item>
+      </Link>
+      <Link to='/users'>
+        <Menu.Item active={location.pathname == "/users"}>Users</Menu.Item>
+      </Link>
+      </>
+      </Menu.Menu>
+      <Menu.Menu position='right'>
+        <img src='https://fontmeme.com/permalink/210924/42bbd6409d76d304589922375be6bd6b.png'/>
+      </Menu.Menu>
       <Menu.Menu position="right">
         {rightNavItems()}
       </Menu.Menu>
     </Menu>
   )
 }
+
+const Myimg = styled.img`
+  text-align: center;
+`
 
 export default NavBar
