@@ -16,6 +16,7 @@ const AuthProvider = (props) => {
       history.push('/')
     }catch(err){
       console.log(err)
+      //we want an error message here if registration doesn't work!
     }
   }
 

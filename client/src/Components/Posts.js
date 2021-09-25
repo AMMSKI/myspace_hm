@@ -36,6 +36,11 @@ const Posts = ({ user }) => {
                   </Feed.Summary>
                 </Feed.Content>
               </Feed.Event>
+              <Card.Content>
+                {/* <div fluid class="image"> */}
+                <Postimg src={p.image}/>
+                {/* </div> */}
+               </Card.Content>
               <Card.Content extra>
                 {p.likes}
               </Card.Content>
@@ -56,28 +61,10 @@ const Posts = ({ user }) => {
 
 } 
 
+const Postimg = styled.img`
+max-width: 100%;
+max-height: 100%;
+`
 
 
 export default Posts
-
-{/* <Card color='black'>
-    <Card.Content>
-      <Feed>
-        <Feed.Event>
-          <div className="avatar">
-            <Feed.Label image={user.image} />
-          </div>
-          <Card.Header>{user.name}</Card.Header>
-          <Card.Meta>{`${user.name} is feeling ${p.mood}`}</Card.Meta>
-          <Feed.Content>
-            <Feed.Summary>
-            {p.text}
-            </Feed.Summary>
-          </Feed.Content>
-        </Feed.Event>
-        <Card.Content extra>
-          {p.likes}
-        </Card.Content>
-      </Feed>
-  </Card.Content>
-</Card> */}

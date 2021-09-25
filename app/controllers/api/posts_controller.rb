@@ -11,6 +11,16 @@ class Api::PostsController < ApplicationController
   #   render json: @user
   # end
 
+  def create 
+    @post = @user.posts.new(post_params)
+    if(@post.save)
+      render json: @post
+    else
+      render json: @post.errors.full_messages, status:422
+    end
+  end
+
+    render 
   def update 
     @post.update(post_params)
   end
@@ -31,7 +41,7 @@ class Api::PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:posts).permit(:user_id, :text, :mood, :likes, :id, :image)
+      params.require(:post).permit(:user_id, :text, :mood, :likes, :id, :image)
     end
 
 end

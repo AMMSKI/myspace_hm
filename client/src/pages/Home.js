@@ -36,7 +36,7 @@ const Home = () => {
       </Card.Text>
       </Card.Body>
     </Card>
-    <PostForm id={user.id}/>
+    <PostForm id={user.id} user={user}/>
     <Posts user={user}/>
     </div>
     </>
