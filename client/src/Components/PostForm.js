@@ -66,9 +66,9 @@ const PostForm = ({user}) => {
         fluid
         selection
         options={moods}
-        placeholder="How are you feeling?">
+        placeholder="How are you feeling?"
+        style={{marginBottom: "6px"}}>
         </Dropdown>
-
         <MyButton>Post!</MyButton>
       </Form>
       </Card>

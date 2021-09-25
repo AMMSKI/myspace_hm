@@ -3,9 +3,12 @@ import React, { useEffect, useState } from "react";
 import { Feed, Card } from "semantic-ui-react";
 import styled from "styled-components";
 import Users from "../pages/Users";
+import MyBabyButton from "./MyBabyButton";
+import PostForm from "./PostForm";
 
 const Posts = ({ user }) => {
   const [posts, setPosts] = useState([])
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(()=>{
     getPosts()
@@ -21,25 +24,41 @@ const Posts = ({ user }) => {
     }
   }
 
+  const deletePost = async (id) => {
+    try {
+      await axios.delete(`/api/users/${user.id}/posts/${id}`)
+      const filterPosts = posts.filter((post) => post.id !==id);
+      setPosts(filterPosts)
+    } catch {
+      alert("Blast!  He got away!")
+    }
+  }
+
   const renderPosts = () => {
     return posts.map((p)=>{
       return (
-        <Card color='black'>
+        <Card>
           <Card.Content>
             <Feed>
               <Feed.Event>
                   <img class="ui avatar image" src={user.image} />
-                {/* <Card.Header>{user.nickname}</Card.Header> */}
                 <Feed.Content>
                   <Feed.Summary>
                   {p.text}
                   </Feed.Summary>
                 </Feed.Content>
+                <Feed.Content>
+                  <Feed.Summary>
+
+                    <MyBabyButton onClick = {() => setShowForm(!showForm)}> {!showForm ? "Edit" : "Cancel"} </MyBabyButton>
+                    {showForm && <PostForm id={p.id}/>}
+                    <MyBabyButton onClick= {()=>deletePost(p.id)}>Delete</MyBabyButton>
+
+                  </Feed.Summary>
+                </Feed.Content>
               </Feed.Event>
               <Card.Content>
-                {/* <div fluid class="image"> */}
                 <Postimg src={p.image}/>
-                {/* </div> */}
                </Card.Content>
               <Card.Content extra>
                 {p.likes}
@@ -68,7 +87,3 @@ max-height: 100%;
 
 
 export default Posts
-<<<<<<< HEAD
-
-=======
->>>>>>> f97068f1cb6755951e2afdad1846f0033b8c03e2

@@ -33,7 +33,7 @@ class Api::PostsController < ApplicationController
   private
 
     def set_post
-      @post = @user.post.find(params[:id])
+      @post = @user.posts.find(params[:id])
     end
 
     def set_user
