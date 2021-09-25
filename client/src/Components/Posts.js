@@ -36,6 +36,11 @@ const Posts = ({ user }) => {
                   </Feed.Summary>
                 </Feed.Content>
               </Feed.Event>
+              <Card.Content>
+                {/* <div fluid class="image"> */}
+                <Postimg src={p.image}/>
+                {/* </div> */}
+               </Card.Content>
               <Card.Content extra>
                 {p.likes}
               </Card.Content>
@@ -56,7 +61,14 @@ const Posts = ({ user }) => {
 
 } 
 
+const Postimg = styled.img`
+max-width: 100%;
+max-height: 100%;
+`
 
 
 export default Posts
+<<<<<<< HEAD
 
+=======
+>>>>>>> f97068f1cb6755951e2afdad1846f0033b8c03e2

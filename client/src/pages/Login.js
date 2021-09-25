@@ -34,7 +34,7 @@ const Login = () => {
         label={"Password"}
          />
         
-        <MyButton>Add</MyButton>
+        <MyButton>Login</MyButton>
       </Form>
     </div>
   )
