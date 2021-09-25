@@ -2,25 +2,25 @@ import NavBar from './Components/Navbar';
 import { Route, Switch } from 'react-router';
 import { Container } from 'semantic-ui-react'
 import Home from './pages/Home';
-import Things from './pages/Things';
 import ComponentExample from './Components/ComponentExample';
-import NoMatch from './Components/NoMatch';
+import NoMatch from './Components/NoMatch'
 import Login from './pages/Login';
 import Register from './pages/Register';
 import FetchUser from './Components/FetchUser';
 import ProtectedRoute from './Components/ProtectedRoute';
-import User from './pages/User';
+import Users from './pages/Users';
 import './App.css';
+import styled from 'styled-components';
 
 function App() {
   return (
-    <div className="space theme">
-      <NavBar />
+    <MyDiv>
       <FetchUser>
+      <NavBar />
         <Container>
           <Switch>
-            <Route exact path='/' component={Home}/>    
-            <ProtectedRoute exact path='/user' component={User}/>
+            <ProtectedRoute exact path='/' component={Home}/>    
+            <ProtectedRoute exact path='/users' component={Users}/>
             <Route exact path='/components' component={ComponentExample}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/register' component={Register}/>
@@ -28,8 +28,16 @@ function App() {
           </Switch>
         </Container>
       </FetchUser>
-    </div>
+    </MyDiv>
   );
 }
+
+const MyDiv = styled.div`
+  background-image: url('https://wallpaperaccess.com/full/1745055.jpg');
+  height: 200vh;
+  width: 100vw;
+  background-attachment: fixed;
+  overflow: scroll;
+  `
 
 export default App;
