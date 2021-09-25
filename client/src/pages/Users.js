@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, Col, Container, Row } from 'react-bootstrap'
 import MyLoader from '../Components/MyLoader'
 import useAxiosOnMount from '../hooks/useAxiosOnMount'
 
@@ -26,8 +26,9 @@ const Users = () => {
   const renderUsers = () => {
      return users.map((u)=> {
     return (
-      <Card style={{width: '18em'}}>
-        <Card.Img src={u.image}/>
+      <Col sm='auto' md='auto' lg='auto' >
+      <Card fluid='md' style={{width: '18em', height:'400px', margin:'10px'}}>
+        <Card.Img style={{height:'250px', width:'250px', borderRadius:'200px', objectFit:'contain'}} src={u.image}/>
       <Card.Body>
         <Card.Title>
       <h1>{u.name}</h1>
@@ -38,16 +39,22 @@ const Users = () => {
       </Card.Text>
       </Card.Body>
     </Card>
+    </Col>
     )
   })
   }
 
   return (
-    <div>
+    <Container  fluid='md' style={{textAlign:'center', marginTop:'10vh'}}>
+      <h1 style={{color:'white'}}>Users</h1>
+    <Row style={{justifyContent:'space-between'}}>
        {renderUsers()}
-    </div>
+    </Row>
+    </Container>
   )
   
 }
+
+
 
 export default Users

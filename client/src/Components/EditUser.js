@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useContext, useState } from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, Container } from 'react-bootstrap'
 import { Form } from 'semantic-ui-react'
 import MyButton from '../Components/MyButton'
 import { AuthContext } from '../providers/AuthProvider'

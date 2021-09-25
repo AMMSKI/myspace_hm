@@ -23,7 +23,7 @@ const AuthProvider = (props) => {
     try{
       let res = await axios.post('/api/auth/sign_in', user)
       setUser(res.data.data)
-      alert('Login succsessful')
+      // alert('Login succsessful')
       history.push('/')
     }catch(err){
       console.log(err)

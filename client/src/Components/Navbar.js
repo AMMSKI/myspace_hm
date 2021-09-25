@@ -31,7 +31,7 @@ const NavBar = () => {
   };
 
   return (
-    <Menu className='ui inverted menu' color={'#070805'}>
+    <Menu className='ui inverted fixed menu' color={'#070805'}>
       <Menu.Menu>
       <>
       <Link to='/'>

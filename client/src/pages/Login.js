@@ -16,7 +16,8 @@ const Login = () => {
 
   return (
     <div>
-      <h1>Log In</h1>
+      <h1>May the force be with you</h1>
+      <h2>Log in below</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Input
         value={email}

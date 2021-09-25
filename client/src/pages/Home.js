@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Card, Button } from 'react-bootstrap'
+import { Card, Button, Container } from 'react-bootstrap'
 import styled from 'styled-components'
 import EditUser from '../Components/EditUser'
 import MyButton from '../Components/MyButton'
@@ -11,17 +11,17 @@ const Home = () => {
   const { user } = useContext(AuthContext)
   const [showForm, setShowForm] = useState(false)
 
-  
+
     if(showForm){
       return (
-      <>
+    <Container  fluid='md' style={{textAlign:'center', marginTop:'10vh'}}>
       <MyButton onClick={()=> setShowForm(!showForm)}> Close </MyButton>
       {showForm && <EditUser />}
-      </>
+    </Container>
       )
     }else{
       return (
-    <>
+    <Container  fluid='md' style={{textAlign:'center', marginTop:'10vh'}}>
     <MyButton onClick={()=> setShowForm(!showForm)}> Edit Info </MyButton>
     <div>
     <Card>
@@ -39,7 +39,7 @@ const Home = () => {
     <PostForm id={user.id}/>
     <Posts user={user}/>
     </div>
-    </>
+    </Container>
   )}
 }
 

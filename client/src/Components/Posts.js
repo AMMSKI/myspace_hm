@@ -60,24 +60,3 @@ const Posts = ({ user }) => {
 
 export default Posts
 
-{/* <Card color='black'>
-    <Card.Content>
-      <Feed>
-        <Feed.Event>
-          <div className="avatar">
-            <Feed.Label image={user.image} />
-          </div>
-          <Card.Header>{user.name}</Card.Header>
-          <Card.Meta>{`${user.name} is feeling ${p.mood}`}</Card.Meta>
-          <Feed.Content>
-            <Feed.Summary>
-            {p.text}
-            </Feed.Summary>
-          </Feed.Content>
-        </Feed.Event>
-        <Card.Content extra>
-          {p.likes}
-        </Card.Content>
-      </Feed>
-  </Card.Content>
-</Card> */}
