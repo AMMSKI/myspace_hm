@@ -36,7 +36,7 @@ const Posts = ({ user }) => {
   const renderPosts = () => {
     return posts.map( p => {
       return(
-      <Post key={p.id} p={p} posts={posts} showForm={showForm} setShowForm={setShowForm} deletePost={deletePost}/>
+      <Post key={p.id} p={p} posts={posts} deletePost={deletePost}/>
     )})
     }
     

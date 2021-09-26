@@ -6,5 +6,8 @@ Rails.application.routes.draw do
       resources :posts
     end
   end
-  
+
+
+  get '/api/user/friends', to: 'api/users#friends'
+  put '/api/user/friends', to: 'api/users#create_friend'
 end

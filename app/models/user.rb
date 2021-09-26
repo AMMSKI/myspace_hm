@@ -8,4 +8,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
+
+  serialize :friends, Array
+
+
+  def self.add_friend(ids)
+    ids = ids.empty? ? [0] : ids
+    User.where('id IN (?)', ids)
+  end
+
 end

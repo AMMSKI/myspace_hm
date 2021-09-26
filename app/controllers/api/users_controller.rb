@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action :set_user, only: [:show, :destroy, :update]
+  before_action :set_user, only: [:show, :destroy, :update,]
   
     def index
       user = User.all
@@ -18,6 +18,18 @@ class Api::UsersController < ApplicationController
       @user.destroy
       render json: @user.destroy
     end
+
+    def friends 
+      render json: current_user.friends
+    end
+
+    def create_friend
+      current_user.friends << params[:id].to_i
+      current_user.save
+      render json: current_user
+    end
+
+
   
     private
       def set_user
@@ -25,6 +37,6 @@ class Api::UsersController < ApplicationController
       end
   
       def user_params
-        params.require(:user).permit(:email, :name, :image, :id, :nickname)
+        params.require(:user).permit(:email, :name, :image, :id, :nickname, :friends)
       end
 end

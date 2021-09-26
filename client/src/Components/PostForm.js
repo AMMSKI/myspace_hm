@@ -66,7 +66,9 @@ const PostForm = ({id, text, image, mood, showForm, setShowForm}) => {
         value={postText}
         onChange={(e) => {
           setPostText(e.target.value)}}
-        label="What are you thinking?"/>
+        label="What are you thinking?"
+        placeholder={'Post here'}
+        />
 
         <Form.Input
         type="url"
@@ -74,7 +76,7 @@ const PostForm = ({id, text, image, mood, showForm, setShowForm}) => {
         onChange={(e, {value}) => {
           setPostImage(value);
         }}
-        placeholder={"add an image to your post"}
+        placeholder={"Add an image to your post (url)"}
         />
 
         <Dropdown
@@ -83,9 +85,8 @@ const PostForm = ({id, text, image, mood, showForm, setShowForm}) => {
         fluid
         selection
         options={moods}
-        placeholder="How are you feeling?"
-        style={{marginBottom: "6px"}}>
-        </Dropdown>
+        placeholder="How are you feeling?">
+        </Dropdown><br/>
         <MyButton>Post!</MyButton>
       </Form>
       </Card>

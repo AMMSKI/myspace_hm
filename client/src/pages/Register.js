@@ -8,13 +8,14 @@ const Login = () => {
   const { handleRegister } = useContext(AuthContext)
   const [email, setEmail] = useState('test@test.com')
   const [name, setName] = useState('test name')
+  const [image, setImage] = useState('https://avatars.dicebear.com/v2/identicon/0412afd0cdaff58533c18fc72c58cc8a.svg')
   const [password, setPassword] = useState('123456')
   const [confirmPassword, setConfirmPassword] = useState('123456')
   const history = useHistory()
 
   const handleSubmit = () => {
     if(password === confirmPassword){
-    handleRegister({ email, password, name}, history)
+    handleRegister({ email, password, name, image }, history)
     }else{
       alert('Password does not match')
     }
@@ -34,6 +35,13 @@ const Login = () => {
         value={email}
         onChange={(e, { value }) => {
           setEmail(value);
+        }}
+        label={"Email"}
+         />
+         <Form.Input
+        value={image}
+        onChange={(e, { value }) => {
+          setImage(value);
         }}
         label={"Email"}
          />

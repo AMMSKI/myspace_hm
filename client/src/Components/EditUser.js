@@ -7,17 +7,17 @@ import { AuthContext } from '../providers/AuthProvider'
 
 const EditUser = () => {
   const { user } = useContext(AuthContext)
-  const [email, setEmail] = useState(user.email ? user.email : '')
   const [name, setName] = useState(user.name ? user.name : '')
-  const [image, setImage] = useState(user.image ? user.image : '')
+  const [image, setImage] = useState(user.image ? user.image : 'https://avatars.dicebear.com/v2/identicon/0412afd0cdaff58533c18fc72c58cc8a.svg')
   const [nickname, setNickname] = useState(user.nickname ? user.nickname : '')
 
   const [id, setId] = useState(user.id ? user.id : '')
 
   const handleSubmit = async (e) => {
     try{
-      let res = await axios.put(`/api/users/${user.id}`, { name, email, id, image, nickname })
+      let res = await axios.put(`/api/users/${user.id}`, { name, id, image, nickname })
       console.log(res)
+      window.location.reload();
     }catch(err){
       console.log(err)
     }
@@ -41,11 +41,11 @@ const EditUser = () => {
         label={"Nickname"}
          />
         <Form.Input
-        value={email}
+        value={image}
         onChange={(e, { value }) => {
-          setEmail(value);
+          setImage(value);
         }}
-        label={"Email"}
+        label={"Image as 'url' "}
          />
         <MyButton>Save</MyButton>
       </Form>
