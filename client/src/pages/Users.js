@@ -58,7 +58,7 @@ const Users = () => {
 
   return (
     <Container  fluid='md' style={{textAlign:'center', marginTop:'10vh'}}>
-      <h1 style={{color:'white'}}>Users</h1>
+      <h1 style={{color:"#1AADB7"}}>Users</h1>
     <Row style={{justifyContent:'space-between'}}>
        {renderUsers()}
     </Row>
