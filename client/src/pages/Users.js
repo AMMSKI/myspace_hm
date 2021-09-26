@@ -2,8 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Card, Col, Container, Row, } from 'react-bootstrap'
 import MyButton from '../Components/MyButton'
-import MyLoader from '../Components/MyLoader'
-import useAxiosOnMount from '../hooks/useAxiosOnMount'
+import { Link } from 'react-router-dom'
 
 
 const Users = () => {
@@ -28,6 +27,7 @@ const Users = () => {
     let res = await axios.put('/api/user/friends', user)
     console.log('ti sis data', res)
     console.log(users)
+    alert('Friend Added')
     }catch(err){
       console.log(err)
     }
@@ -48,11 +48,12 @@ const Users = () => {
       <p>{u.email}</p>
       </Card.Text>
       <MyButton onClick={()=> addFriend(u)}>Add Friend</MyButton>
+      <Link to={{pathname:"/user", user: {u} }}><MyButton>View Profile</MyButton></Link>
       </Card.Body>
     </Card>
     </Col>
     )
-  })
+  }) 
   }
 
   return (

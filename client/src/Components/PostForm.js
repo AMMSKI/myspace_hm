@@ -49,7 +49,9 @@ const PostForm = ({user}) => {
         value={postText}
         onChange={(e) => {
           setPostText(e.target.value)}}
-        label="What are you thinking?"/>
+        label="What are you thinking?"
+        placeholder={'Post here'}
+        />
 
         <Form.Input
         type="url"
@@ -57,7 +59,7 @@ const PostForm = ({user}) => {
         onChange={(e, {value}) => {
           setPostImage(value);
         }}
-        placeholder={"add an image to your post"}
+        placeholder={"Add an image to your post (url)"}
         />
 
         <Dropdown

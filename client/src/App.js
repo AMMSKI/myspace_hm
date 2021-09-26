@@ -11,6 +11,7 @@ import ProtectedRoute from './Components/ProtectedRoute';
 import Users from './pages/Users';
 import './App.css';
 import styled from 'styled-components';
+import User from './Components/User';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Switch>
             <ProtectedRoute exact path='/' component={Home}/>    
             <ProtectedRoute exact path='/users' component={Users}/>
+            <ProtectedRoute exact path='/user' component={User}/>
             <Route exact path='/components' component={ComponentExample}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/register' component={Register}/>

@@ -32,7 +32,7 @@ const Posts = ({ user }) => {
                 {/* <Card.Header>{user.nickname}</Card.Header> */}
                 <Feed.Content>
                   <Feed.Summary>
-                  {p.text}
+                    {p.text}
                   </Feed.Summary>
                 </Feed.Content>
               </Feed.Event>

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { Card, Button, Container, Col, Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import EditUser from '../Components/EditUser'
 import MyButton from '../Components/MyButton'
@@ -54,6 +55,7 @@ const Home = () => {
                   <p>{u.email}</p>
                 </Card.Text>
               </Card.Body>
+              <Link to={{pathname:"/user", user: {u} }}><MyButton>View Profile</MyButton></Link>
             </Card>
           </Col>
         )
