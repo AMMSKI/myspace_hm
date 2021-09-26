@@ -68,7 +68,3 @@ max-height: 100%;
 
 
 export default Posts
-<<<<<<< HEAD
-
-=======
->>>>>>> f97068f1cb6755951e2afdad1846f0033b8c03e2

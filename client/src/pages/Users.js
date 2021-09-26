@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Card, Col, Container, Row } from 'react-bootstrap'
+import { Card, Col, Container, Row, } from 'react-bootstrap'
+import MyButton from '../Components/MyButton'
 import MyLoader from '../Components/MyLoader'
 import useAxiosOnMount from '../hooks/useAxiosOnMount'
 
@@ -16,8 +17,17 @@ const Users = () => {
   const getUsers = async () => {
     try{
       let res = await axios.get('/api/users')
-      console.log(res)
       setUsers(res.data)
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+  const addFriend = async (user) => {
+    try{
+    let res = await axios.put('/api/user/friends', user)
+    console.log('ti sis data', res)
+    console.log(users)
     }catch(err){
       console.log(err)
     }
@@ -26,8 +36,8 @@ const Users = () => {
   const renderUsers = () => {
      return users.map((u)=> {
     return (
-      <Col sm='auto' md='auto' lg='auto' >
-      <Card fluid='md' style={{width: '18em', height:'400px', margin:'10px'}}>
+      <Col sm='auto' md='auto' lg='auto' style={{margin:'10px'}} >
+      <Card fluid='md' style={{width: '18em', height:'100%'}}>
         <Card.Img style={{height:'250px', width:'250px', borderRadius:'200px', objectFit:'contain'}} src={u.image}/>
       <Card.Body>
         <Card.Title>
@@ -37,6 +47,7 @@ const Users = () => {
       <Card.Text>
       <p>{u.email}</p>
       </Card.Text>
+      <MyButton onClick={()=> addFriend(u)}>Add Friend</MyButton>
       </Card.Body>
     </Card>
     </Col>

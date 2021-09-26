@@ -67,7 +67,7 @@ const PostForm = ({user}) => {
         selection
         options={moods}
         placeholder="How are you feeling?">
-        </Dropdown>
+        </Dropdown><br/>
 
         <MyButton>Post!</MyButton>
       </Form>

@@ -11,7 +11,6 @@ const AuthProvider = (props) => {
     console.log('handleregets', user)
     try{
       let res = await axios.post('/api/auth', user)
-      console.log('res', res)
       setUser(res.data.data)
       history.push('/')
     }catch(err){
