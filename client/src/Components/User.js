@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Col, Container, Row, } from 'react-bootstrap'
+import { Feed } from "semantic-ui-react";
 import styled from "styled-components";
 import MyButton from "./MyButton";
 import Posts from "./Posts";
@@ -40,7 +41,7 @@ const User = (props) => {
           </Row>
         <Row>
           <Col sm='auto' md='auto' lg='auto' style={{margin:'10px'}}>
-            <Posts user={user}/>
+            {renderUserPosts()}
           </Col>
         </Row>
       </Container>
@@ -50,6 +51,11 @@ const User = (props) => {
 const Myimg = styled.img`
   width: 18em;
   border-radius: 200px;
+`
+
+const Postimg = styled.img`
+max-width: 100%;
+max-height: 100%;
 `
 
 export default User
