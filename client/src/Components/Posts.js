@@ -6,7 +6,7 @@ import MyBabyButton from "./MyBabyButton";
 import PostForm from "./PostForm";
 import Post from "./Post";
 
-const Posts = ({ user }) => {
+const Posts = ({ user, x }) => {
   const [posts, setPosts] = useState([])
 
   useEffect(()=>{
@@ -36,7 +36,7 @@ const Posts = ({ user }) => {
   const renderPosts = () => {
     return posts.map( p => {
       return(
-      <Post key={p.id} p={p} posts={posts} deletePost={deletePost}/>
+      <Post key={p.id} x={x} p={p} user={user} posts={posts} deletePost={deletePost}/>
     )})
     }
     
