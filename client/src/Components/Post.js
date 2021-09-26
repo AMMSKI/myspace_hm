@@ -7,8 +7,8 @@ import { AuthContext } from '../providers/AuthProvider'
 
 
 
-const Post = ({p, deletePost}) => {
-  const { user } = useContext(AuthContext)
+const Post = ({p, deletePost, user, x}) => {
+  // const { user } = useContext(AuthContext)
   const [showForm, setShowForm] = useState(false);
   const [likes, setLikes] = useState(0)
 
@@ -17,18 +17,10 @@ const Post = ({p, deletePost}) => {
   //   return ( "0")
   //     }
 
-return (
-  <Card>
-    <Card.Content>
-      <Feed> 
-        <Feed.Event>
-            <img className="ui avatar image" src={user.image} />
-          <Feed.Content>
-            <Feed.Summary>
-            {p.text}
-            </Feed.Summary>
-          </Feed.Content>
-          <Feed.Content>
+  const showButtons =()=>{
+    if(x){
+      return(
+          <Feed.Content>  
             <Feed.Summary>
 
               <MyBabyButton onClick = {() => setShowForm(!showForm)}> 
@@ -41,6 +33,22 @@ return (
 
             </Feed.Summary>
           </Feed.Content>
+      )
+    }
+  }
+
+return (
+  <Card>
+    <Card.Content>
+      <Feed> 
+        <Feed.Event>
+            <img className="ui avatar image" src={user.image} />
+          <Feed.Content>
+            <Feed.Summary>
+            {p.text}
+            </Feed.Summary>
+          </Feed.Content>
+          {showButtons()}
         </Feed.Event>
       <Card.Content>
         <Postimg src={p.image}/>

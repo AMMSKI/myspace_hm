@@ -102,8 +102,8 @@ const Home = () => {
           </Row>
         <Row>
           <Col>
-            <PostForm id={user.id} user={user}/>
-            <Posts user={user}/>
+            <PostForm user={user}/>
+            <Posts x={true} user={user}/>
           </Col>
           <Col sm='auto' md='auto' lg='auto' style={{margin:'10px'}}>
             <Card>
