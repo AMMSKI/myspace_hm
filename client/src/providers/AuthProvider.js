@@ -28,6 +28,7 @@ const AuthProvider = (props) => {
       history.push('/')
     }catch(err){
       console.log(err)
+      alert("Could not login.  Check username and password.")
     }
   }
 

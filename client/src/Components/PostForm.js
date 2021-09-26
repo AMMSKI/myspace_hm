@@ -1,6 +1,8 @@
 import axios from 'axios';
-import { useEffect, useState, useLocation } from 'react';
+import { useEffect, useState, useLocation, useContext } from 'react';
+import { propTypes } from 'react-bootstrap/esm/Image';
 import { Card, Form, Dropdown } from 'semantic-ui-react'
+import { AuthContext } from '../providers/AuthProvider';
 import MyButton from './MyButton';
 import Posts from './Posts';
 
@@ -17,25 +19,40 @@ const moods = [
   {key: "hrrr", text: "hrrr", value: "hrrr"},
 ]
 
-const PostForm = ({user}) => {
-  const [postUser, setPostUser] = useState(user)
-  const [postText, setPostText] = useState('')
-  const [postImage, setPostImage] = useState("")
-  const [postMood, setPostMood] = useState("")
+const PostForm = ({id, text, image, mood, showForm, setShowForm}) => {
+  const [postText, setPostText] = useState(id ? text : "")
+  const [postImage, setPostImage] = useState(id ? image : "")
+  const [postMood, setPostMood] = useState(id ? mood : "")
+  const { user } = useContext(AuthContext)
+  
+  // const getPost = async () => {
+  //   try {
+  //     let res = await axios.get(`/api/users/${user.id}/posts/${id}`)
+      
+  //   }
+  // }
 
   const handleSubmit = async (e) => {
-    console.log("text:", postText, "image:", postImage, "mood:", postMood)
-    try{
+    e.preventDefault()
+    let post = {
+      user_id: user.id,
+      text: postText,
+      image: postImage,
+      mood: postMood
+    };
+    console.log(post)
+    if (id) {
+      let res = await axios.put(`/api/users/${user.id}/posts/${id}`, post);
+      console.log(res.data);
+      ;
+      console.log(res.data);
+      setShowForm(!showForm)
+      ;
+    }
+    else {
       console.log(e)
-      await axios.post(`/api/users/${user.id}/posts/`, 
-      { user_id: user.id,
-        text: postText,
-        image: postImage,
-        mood: postMood
-      })
+      await axios.post(`/api/users/${user.id}/posts/`, post);
       window.location.reload();
-      } catch (error) {
-      console.log(error.response)
     }
   } 
 

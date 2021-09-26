@@ -151,7 +151,7 @@ wookiemood = [
 
   grogu = User.create(
     name: "Grogu",
-    nickname: "baby yoda",
+    nickname: "The Child",
     email: "baby_yoda@email.com",
     password: "123456",
     force_alignment: "grey",
@@ -159,8 +159,8 @@ wookiemood = [
   )
 
   mando = User.create(
-    name: "The Mandolorian",
-    nickname: "Mando",
+    name: "Din Djarin",
+    nickname: "The Mandolorian",
     email: "din_djarin@email.com",
     password: "123456",
     force_alignment: "grey",

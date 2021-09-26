@@ -1,14 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Feed, Card } from "semantic-ui-react";
 import styled from "styled-components";
 import Users from "../pages/Users";
 import MyBabyButton from "./MyBabyButton";
 import PostForm from "./PostForm";
+import Post from "./Post";
 
 const Posts = ({ user }) => {
   const [posts, setPosts] = useState([])
-  const [showForm, setShowForm] = useState(false);
 
   useEffect(()=>{
     getPosts()
@@ -35,40 +34,10 @@ const Posts = ({ user }) => {
   }
 
   const renderPosts = () => {
-    return posts.map((p)=>{
-      return (
-        <Card>
-          <Card.Content>
-            <Feed>
-              <Feed.Event>
-                  <img class="ui avatar image" src={user.image} />
-                <Feed.Content>
-                  <Feed.Summary>
-                  {p.text}
-                  </Feed.Summary>
-                </Feed.Content>
-                <Feed.Content>
-                  <Feed.Summary>
-
-                    <MyBabyButton onClick = {() => setShowForm(!showForm)}> {!showForm ? "Edit" : "Cancel"} </MyBabyButton>
-                    {showForm && <PostForm id={p.id}/>}
-                    <MyBabyButton onClick= {()=>deletePost(p.id)}>Delete</MyBabyButton>
-
-                  </Feed.Summary>
-                </Feed.Content>
-              </Feed.Event>
-              <Card.Content>
-                <Postimg src={p.image}/>
-               </Card.Content>
-              <Card.Content extra>
-                {p.likes}
-              </Card.Content>
-            </Feed>
-        </Card.Content>
-        <Card.Meta>{`${user.name} is feeling ${p.mood}`}</Card.Meta>
-      </Card>
-      )
-      })
+    return posts.map( p => {
+      return(
+      <Post key={p.id} p={p} posts={posts} showForm={showForm} setShowForm={setShowForm} deletePost={deletePost}/>
+    )})
     }
     
 
@@ -80,10 +49,6 @@ const Posts = ({ user }) => {
 
 } 
 
-const Postimg = styled.img`
-max-width: 100%;
-max-height: 100%;
-`
 
 
 export default Posts

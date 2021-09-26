@@ -47,7 +47,7 @@ const EditUser = () => {
         }}
         label={"Email"}
          />
-        <MyButton>Edit</MyButton>
+        <MyButton>Save</MyButton>
       </Form>
     </Card>
   )

@@ -3,7 +3,7 @@ class Api::PostsController < ApplicationController
   before_action :set_post, only: [:update, :destroy]
   
   def index
-    posts = @user.posts.all
+    posts = @user.posts.all.order('created_at DESC')
     render json: posts
   end
 
@@ -16,13 +16,16 @@ class Api::PostsController < ApplicationController
     if(@post.save)
       render json: @post
     else
-      render json: @post.errors.full_messages, status:422
+      render json: {errors: post.errors.full_messages}, status: 422
     end
   end
 
-    render 
   def update 
-    @post.update(post_params)
+    if @post.update(post_params)
+      render json: @post
+    else
+      render json: {errors: post.errors.full_messages}, status: 422
+    end
   end
 
   def destroy

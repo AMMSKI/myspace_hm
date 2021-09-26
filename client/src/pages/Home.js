@@ -1,5 +1,7 @@
+import axios from 'axios'
 import React, { useContext, useState } from 'react'
 import { Card, Button, Container } from 'react-bootstrap'
+import { Confirm, Feed } from 'semantic-ui-react'
 import styled from 'styled-components'
 import EditUser from '../Components/EditUser'
 import MyButton from '../Components/MyButton'
@@ -10,7 +12,15 @@ import { AuthContext } from '../providers/AuthProvider'
 const Home = () => {
   const { user } = useContext(AuthContext)
   const [showForm, setShowForm] = useState(false)
-
+  
+  const deleteUser = async () => {
+    try {
+      await axios.delete(`/api/users/${user.id}`)
+      window.location.reload();
+    } catch {
+      alert("Blast!  He got away!")
+    }
+  }
 
     if(showForm){
       return (
@@ -23,6 +33,7 @@ const Home = () => {
       return (
     <Container  fluid='md' style={{textAlign:'center', marginTop:'10vh'}}>
     <MyButton onClick={()=> setShowForm(!showForm)}> Edit Info </MyButton>
+    <MyButton onClick={()=> deleteUser(user.id)}> Delete Profile </MyButton>
     <div>
     <Card>
       <Card.Body>
@@ -36,7 +47,7 @@ const Home = () => {
       </Card.Text>
       </Card.Body>
     </Card>
-    <PostForm id={user.id} user={user}/>
+    <PostForm user={user}/>
     <Posts user={user}/>
     </div>
     </Container>
