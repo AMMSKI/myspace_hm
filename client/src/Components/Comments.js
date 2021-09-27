@@ -38,7 +38,7 @@ const Comments = ({p, u}) => {
 }
 
  const showDelete = (comment) => {
-   if(user.id === comment.user.id) {
+   if(user.id === comment.user.id || user.id === comment.post.user_id) {
      return(
     <MyBabyButton onClick= {()=>deleteComment(comment.id)}>Delete</MyBabyButton> 
      )
