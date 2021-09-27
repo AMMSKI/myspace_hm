@@ -56,11 +56,7 @@ return (
    <Card.Content extra>
       <LikesReducer user={user} p={p}/>
   </Card.Content>
-<<<<<<< HEAD
 <Comments p={p} u={user}/>
-=======
-  <Comments post={p} user={user}/>
->>>>>>> 9fa99bcc1c6934a2d4919b473e91e4cd7f41d412
 </Card>
 )}
 
