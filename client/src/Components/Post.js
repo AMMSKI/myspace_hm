@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { AuthContext } from '../providers/AuthProvider'
 import LikesReducer from "./LikesReducer";
 import Comments from "./Comments";
+import CommentForm from "./CommentForm";
 
 
 
@@ -56,7 +57,7 @@ return (
    <Card.Content extra>
       <LikesReducer user={user} p={p}/>
   </Card.Content>
-<Comments post={p} user={user}/>
+<Comments p={p} u={user}/>
 </Card>
 </div>
 )}

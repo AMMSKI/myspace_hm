@@ -3,10 +3,11 @@ import axios from "axios";
 import { Card, Feed } from "semantic-ui-react";
 import { Postimg } from "./Post";
 import { render } from "react-dom";
+import CommentForm from "./CommentForm";
 
 
 
-const Comments = ({post, user}) => {
+const Comments = ({p, u}) => {
   const [comments, setComments] = useState([])
 
   useEffect(()=>{
@@ -15,17 +16,17 @@ const Comments = ({post, user}) => {
 
   const getComments = async () => {
     try{
-      let res = await axios.get(`/api/users/${user.id}/posts/${post.id}/comments/`)
-      console.log(res.data)
+      let res = await axios.get(`/api/users/${u.id}/posts/${p.id}/comments/`)
+      console.log("comments:", res.data)
       setComments(res.data)
     }catch(err){
       console.log(err)
     }
   }
 
-  const renderComments = () => {
+  const showComment = () => {
     return comments.map((comment) => {
-      if(post.id == comment.post.id){
+      if(p.id == comment.post.id){
       return(
         <Card.Content>
           <Feed> 
@@ -43,18 +44,28 @@ const Comments = ({post, user}) => {
           </Card.Content>
         </Feed>
       </Card.Content>
+      )}})}
+      
+
+  const renderComments = () => {
+  if(p.id.comments !== null) {
+    return(
+      <>
+      {showComment()}
+      </>
     )}
-    else
+    else {
     return(
     <Card.Meta>
-      No comments to display.
+      <p>No comments to display.</p>
     </Card.Meta>
     )
-  })}
+  }}
 
 return (
   <>
   {renderComments()}
+  <CommentForm u={u} p={p} comments={comments} setComments={setComments}/>
   </>
 )}
 
