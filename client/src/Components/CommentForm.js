@@ -16,9 +16,9 @@ const CommentForm = ({p, u, setComments, comments}) => {
       post_id: p.id,
       user_id: user.id
     }
-    setComments(...comments, comment)
     try {
       await axios.post(`/api/users/${u.id}/posts/${p.id}/comments/`, comment)
+      window.location.reload();
     } catch(err) {
       console.log(err)
     }

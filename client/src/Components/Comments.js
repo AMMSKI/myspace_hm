@@ -24,9 +24,9 @@ const Comments = ({p, u}) => {
     }
   }
 
-  const showComment = () => {
+  const showComments = () => {
     return comments.map((comment) => {
-      if(p.id == comment.post.id){
+      if(p.id === comment.post.id){
       return(
         <Card.Content>
           <Feed> 
@@ -51,7 +51,7 @@ const Comments = ({p, u}) => {
   if(p.id.comments !== null) {
     return(
       <>
-      {showComment()}
+      {showComments()}
       </>
     )}
     else {
