@@ -19,7 +19,7 @@ const moods = [
   {key: "hrrr", text: "hrrr", value: "hrrr"},
 ]
 
-const PostForm = ({id, text, image, mood, showForm, setShowForm}) => {
+const PostForm = ({id, text, image, mood, showForm, setShowForm, updatePosts}) => {
   const [postText, setPostText] = useState(id ? text : "")
   const [postImage, setPostImage] = useState(id ? image : "")
   const [postMood, setPostMood] = useState(id ? mood : "")
@@ -46,12 +46,12 @@ const PostForm = ({id, text, image, mood, showForm, setShowForm}) => {
       console.log(res.data);
       ;
       console.log(res.data);
-      setShowForm(!showForm)
-      ;
+      setShowForm(!showForm);
+      updatePosts(res.data);
     }
     else {
       console.log(e)
-      await axios.post(`/api/users/${user.id}/posts/`, post);
+      let res = await axios.post(`/api/users/${user.id}/posts/`, post);
       window.location.reload();
     }
   } 

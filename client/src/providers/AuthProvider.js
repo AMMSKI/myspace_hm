@@ -8,14 +8,14 @@ const AuthProvider = (props) => {
   const [user, setUser] = useState(null)
 
   const handleRegister = async (user, history) => {
-    console.log('handleregets', user)
+    console.log('', user)
     try{
       let res = await axios.post('/api/auth', user)
       setUser(res.data.data)
       history.push('/')
     }catch(err){
       console.log(err)
-      //we want an error message here if registration doesn't work!
+      alert("Could not register user.  Try again if you dare...")
     }
   }
 

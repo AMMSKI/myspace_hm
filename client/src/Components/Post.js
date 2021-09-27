@@ -7,7 +7,7 @@ import { AuthContext } from '../providers/AuthProvider'
 
 
 
-const Post = ({p, deletePost, user, x}) => {
+const Post = ({p, deletePost, updatePosts, user, x}) => {
   // const { user } = useContext(AuthContext)
   const [showForm, setShowForm] = useState(false);
   const [likes, setLikes] = useState(0)
@@ -27,7 +27,7 @@ const Post = ({p, deletePost, user, x}) => {
               {!showForm ? "Edit" : "Cancel"} 
               </MyBabyButton>
               
-              {showForm && <PostForm id={p.id} showForm={showForm} setShowForm={setShowForm} text={p.text} image={p.image} mood={p.mood}/>}
+              {showForm && <PostForm id={p.id} showForm={showForm} setShowForm={setShowForm} updatePosts={updatePosts} text={p.text} image={p.image} mood={p.mood}/>}
               
               <MyBabyButton onClick= {()=>deletePost(p.id)}>Delete</MyBabyButton>
 

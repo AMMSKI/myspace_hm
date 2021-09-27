@@ -33,10 +33,15 @@ const Posts = ({ user, x }) => {
     }
   }
 
+  const updatePosts = (post) => {
+    const updatedPosts = posts.map((p) => (p.id === post.id ? post: p));
+    setPosts(updatedPosts);
+  }
+
   const renderPosts = () => {
     return posts.map( p => {
       return(
-      <Post key={p.id} x={x} p={p} user={user} posts={posts} deletePost={deletePost}/>
+      <Post key={p.id} x={x} p={p} user={user} posts={posts} deletePost={deletePost} updatePosts={updatePosts}/>
     )})
     }
     
