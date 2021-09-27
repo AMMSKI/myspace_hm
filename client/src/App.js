@@ -12,8 +12,20 @@ import Users from './pages/Users';
 import './App.css';
 import styled from 'styled-components';
 import User from './Components/User';
+import useGetUser from './hooks/useGetUser';
 
 function App() {
+  const { users } = useGetUser()
+
+  const renderRoutes = () => {
+    return users.map((u)=>{
+      return(
+      <Route exact path={`/user/${u.id}`} render={(props)=> <User {...props} user={u} />}/>
+      )
+    })
+  }
+
+
   return (
     <MyDiv>
       <FetchUser>
@@ -22,7 +34,7 @@ function App() {
           <Switch>
             <ProtectedRoute exact path='/' component={Home}/>    
             <ProtectedRoute exact path='/users' component={Users}/>
-            <ProtectedRoute exact path='/user/:id' component={User}/>
+            {renderRoutes()}
             <Route exact path='/components' component={ComponentExample}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/register' component={Register}/>

@@ -33,8 +33,7 @@ const Post = ({p, deletePost, updatePosts, user, x}) => {
   }
 
 return (
-  <div>
-  <Card fluid style={{margin: "20px"}}>
+  <Card style={{margin: "20px"}}>
     <Card.Content>
       <Feed> 
         <Feed.Event>
@@ -56,9 +55,8 @@ return (
    <Card.Content extra>
       <LikesReducer user={user} p={p}/>
   </Card.Content>
-<Comments post={p} user={user}/>
+  <Comments post={p} user={user}/>
 </Card>
-</div>
 )}
 
 
