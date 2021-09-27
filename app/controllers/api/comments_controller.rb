@@ -1,6 +1,7 @@
 class Api::CommentsController < ApplicationController
   before_action :set_user
   before_action :set_post
+  before_action :set_comment, only: [:show, :update, :destroy]
   
   def index
     comments = Comment.plus
@@ -21,11 +22,16 @@ class Api::CommentsController < ApplicationController
   end
 
   def update 
-    
+    if @comment.update(post_params)
+      render json: @comment
+    else
+      render json: {errors: @comment.errors.full_messages}, status: 422
+    end
   end
 
   def destroy
-
+    @comment.destroy
+    render json: @comment
   end
 
   private

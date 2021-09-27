@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Card, Feed } from "semantic-ui-react";
 import { Postimg } from "./Post";
 import { render } from "react-dom";
 import CommentForm from "./CommentForm";
+import MyBabyButton from "./MyBabyButton";
+import { AuthContext } from "../providers/AuthProvider";
 
 
 
 const Comments = ({p, u}) => {
   const [comments, setComments] = useState([])
+  const {user} = useContext(AuthContext)
 
   useEffect(()=>{
     getComments()
@@ -23,6 +26,23 @@ const Comments = ({p, u}) => {
       console.log(err)
     }
   }
+
+  const deleteComment = async (id) => {
+  try {
+    await axios.delete(`/api/users/${u.id}/posts/${p.id}/comments/${id}`)
+    const filterComments = comments.filter((comment) => comment.id !== id);
+    setComments(filterComments)
+  } catch {
+    alert("Are you trying to get us killed!?")
+  }
+}
+
+ const showDelete = (comment) => {
+   if(user.id === comment.user.id) {
+     return(
+    <MyBabyButton onClick= {()=>deleteComment(comment.id)}>Delete</MyBabyButton> 
+     )
+ }}
 
   const showComments = () => {
     return comments.map((comment) => {
@@ -43,6 +63,9 @@ const Comments = ({p, u}) => {
             <Postimg src={comment.image}/>
           </Card.Content>
         </Feed>
+        <Card.Meta>
+        {showDelete(comment)}
+        </Card.Meta>
       </Card.Content>
       )}})}
       
