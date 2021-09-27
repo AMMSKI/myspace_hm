@@ -8,7 +8,7 @@ import Posts from "./Posts";
 
 const User = (props) => {
   const [user, setUser] = useState(props.location.user.u)
-  console.log(props.location.user.u)
+  console.log("INFO I NEED", props.location.user.u)
 
   const addFriend = async (user) => {
     try{

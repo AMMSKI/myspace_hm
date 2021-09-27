@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 
 const Users = () => {
   const [users, setUsers] = useState([])
+  // const [userID, setUserID] = useState(null)
 
 
   useEffect(()=>{
@@ -48,7 +49,7 @@ const Users = () => {
       <p>{u.email}</p>
       </Card.Text>
       <MyButton onClick={()=> addFriend(u)}>Add Friend</MyButton>
-      <Link to={{pathname:"/user", user: {u} }}><MyButton>View Profile</MyButton></Link>
+      <Link to={{pathname:`/user/${u.id}`, user: {u} }}><MyButton>View Profile</MyButton></Link>
       </Card.Body>
     </Card>
     </Col>

@@ -22,7 +22,7 @@ function App() {
           <Switch>
             <ProtectedRoute exact path='/' component={Home}/>    
             <ProtectedRoute exact path='/users' component={Users}/>
-            <ProtectedRoute exact path='/user' component={User}/>
+            <ProtectedRoute exact path='/user/:id' component={User}/>
             <Route exact path='/components' component={ComponentExample}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/register' component={Register}/>
