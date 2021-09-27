@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState, useLocation, useContext } from 'react';
-import { propTypes } from 'react-bootstrap/esm/Image';
 import { Card, Form, Dropdown } from 'semantic-ui-react'
 import { AuthContext } from '../providers/AuthProvider';
 import MyButton from './MyButton';

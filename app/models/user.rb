@@ -2,6 +2,7 @@
 
 class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy 
+  has_many :comments, through: :posts
   extend Devise::Models
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

@@ -242,5 +242,8 @@ wookiemood = [
     chewie.posts.create(text: Faker::Movies::StarWars.wookiee_sentence, mood: wookiemood[rand(5)], likes: rand(1..100))
   end
 
+  Comment.create(text: "I know.", user_id: 4, post_id: 5)
+
   puts "seeded #{User.all.length} users"
   puts "seeded #{Post.all.length} posts"
+  puts "seeded #{Comment.all.length} comment(s)"

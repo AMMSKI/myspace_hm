@@ -5,6 +5,7 @@ import PostForm from "./PostForm";
 import styled from "styled-components";
 import { AuthContext } from '../providers/AuthProvider'
 import LikesReducer from "./LikesReducer";
+import Comments from "./Comments";
 
 
 
@@ -32,7 +33,8 @@ const Post = ({p, deletePost, updatePosts, user, x}) => {
   }
 
 return (
-  <Card>
+  <div>
+  <Card fluid style={{margin: "20px"}}>
     <Card.Content>
       <Feed> 
         <Feed.Event>
@@ -53,15 +55,16 @@ return (
    <Card.Meta>{`${user.name} is feeling ${p.mood}`}</Card.Meta>
    <Card.Content extra>
       <LikesReducer user={user} p={p}/>
-      {/* {postLikes(p)} */}
   </Card.Content>
+<Comments post={p} user={user}/>
 </Card>
+</div>
 )}
 
 
 export default Post
 
-const Postimg = styled.img`
+export const Postimg = styled.img`
 max-width: 100%;
 max-height: 100%;
 `
