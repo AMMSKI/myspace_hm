@@ -73,6 +73,8 @@ const Home = () => {
     })
   }
 
+  const forceAlignment = user.force_alignment
+
 
     if(showForm){
       return (
