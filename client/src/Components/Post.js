@@ -4,18 +4,12 @@ import MyBabyButton from "./MyBabyButton";
 import PostForm from "./PostForm";
 import styled from "styled-components";
 import { AuthContext } from '../providers/AuthProvider'
+import LikesReducer from "./LikesReducer";
 
 
 
 const Post = ({p, deletePost, updatePosts, user, x}) => {
-  // const { user } = useContext(AuthContext)
   const [showForm, setShowForm] = useState(false);
-  const [likes, setLikes] = useState(0)
-
-  // const likes = (p) => {
-  //   if [p.likes == null
-  //   return ( "0")
-  //     }
 
   const showButtons =()=>{
     if(x){
@@ -45,22 +39,21 @@ return (
             <img className="ui avatar image" src={user.image} />
           <Feed.Content>
             <Feed.Summary>
-            {p.text}
+            {user.name}
             </Feed.Summary>
           </Feed.Content>
           {showButtons()}
         </Feed.Event>
       <Card.Content>
+        <h6>{p.text}</h6>
         <Postimg src={p.image}/>
       </Card.Content>
     </Feed>
   </Card.Content>
    <Card.Meta>{`${user.name} is feeling ${p.mood}`}</Card.Meta>
    <Card.Content extra>
-    <p> 
-      <i class="heart icon"/>
-      {`${p.likes} likes`} 
-    </p>
+      <LikesReducer user={user} p={p}/>
+      {/* {postLikes(p)} */}
   </Card.Content>
 </Card>
 )}

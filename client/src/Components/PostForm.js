@@ -24,13 +24,6 @@ const PostForm = ({id, text, image, mood, showForm, setShowForm, updatePosts}) =
   const [postImage, setPostImage] = useState(id ? image : "")
   const [postMood, setPostMood] = useState(id ? mood : "")
   const { user } = useContext(AuthContext)
-  
-  // const getPost = async () => {
-  //   try {
-  //     let res = await axios.get(`/api/users/${user.id}/posts/${id}`)
-      
-  //   }
-  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
