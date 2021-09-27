@@ -10,7 +10,7 @@ const LikesReducer = ({user, p}) => {
     text: p.text,
     image: p.image,
     mood: p.mood,
-    likes: p.likes + 1
+    likes: likes + 1
   });
   console.log("HERE IS RES", res)
   } catch (err) {

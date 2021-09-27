@@ -65,7 +65,7 @@ const Home = () => {
                   <p>{u.email}</p>
                 </Card.Text>
               </Card.Body>
-              <Link to={{pathname:"/user", user: {u} }}><MyButton>View Profile</MyButton></Link>
+              <Link to={{pathname:`/user/${u.id}`, user: {u} }}><MyButton>View Profile</MyButton></Link>
             </Card>
           </Col>
         )
