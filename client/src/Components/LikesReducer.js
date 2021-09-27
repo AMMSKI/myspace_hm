@@ -7,16 +7,20 @@ const LikesReducer = ({user, p}) => {
   try{
   let res = await axios.put(`/api/users/${user.id}/posts/${p.id}`, {
     user_id: user.id,
-    text: p.ext,
+    text: p.text,
     image: p.image,
     mood: p.mood,
-    likes: likes
+    likes: p.likes + 1
   });
   console.log("HERE IS RES", res)
   } catch (err) {
     console.log(err)
   }
 }
+
+  const likeSave = (e) =>
+  {dispatch("add");
+  saveLikes(likes)}
 
   const [likes, dispatch] = useReducer((state, action) => {
     switch (action) {
@@ -29,7 +33,7 @@ const LikesReducer = ({user, p}) => {
     <p>
       {likes}
       <i class="heart icon"
-       onClick={() => {dispatch("add"); saveLikes(likes);}}/>
+       onClick={() => {likeSave()}}/>
     </p>
   );
 };
