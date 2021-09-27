@@ -16,8 +16,8 @@ const Login = () => {
 
   return (
     <div fluid='md' style={{textAlign:'center', marginTop:'10vh'}}>
-      <h1 style={{color:'white'}}>May the force be with you</h1>
-      <h2 style={{color:'white'}}>Log in below</h2>
+      <h1 style={{color:'#1AADB7'}}>May the force be with you...</h1>
+      <h2 style={{color:'#1AADB7'}}>Log in below</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Input
         value={email}

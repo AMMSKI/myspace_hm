@@ -4,18 +4,13 @@ import MyBabyButton from "./MyBabyButton";
 import PostForm from "./PostForm";
 import styled from "styled-components";
 import { AuthContext } from '../providers/AuthProvider'
+import LikesReducer from "./LikesReducer";
+import Comments from "./Comments";
 
 
 
-const Post = ({p, deletePost, user, x}) => {
-  // const { user } = useContext(AuthContext)
+const Post = ({p, deletePost, updatePosts, user, x}) => {
   const [showForm, setShowForm] = useState(false);
-  const [likes, setLikes] = useState(0)
-
-  // const likes = (p) => {
-  //   if [p.likes == null
-  //   return ( "0")
-  //     }
 
   const showButtons =()=>{
     if(x){
@@ -27,7 +22,7 @@ const Post = ({p, deletePost, user, x}) => {
               {!showForm ? "Edit" : "Cancel"} 
               </MyBabyButton>
               
-              {showForm && <PostForm id={p.id} showForm={showForm} setShowForm={setShowForm} text={p.text} image={p.image} mood={p.mood}/>}
+              {showForm && <PostForm id={p.id} showForm={showForm} setShowForm={setShowForm} updatePosts={updatePosts} text={p.text} image={p.image} mood={p.mood}/>}
               
               <MyBabyButton onClick= {()=>deletePost(p.id)}>Delete</MyBabyButton>
 
@@ -38,37 +33,38 @@ const Post = ({p, deletePost, user, x}) => {
   }
 
 return (
-  <Card>
+  <div>
+  <Card fluid style={{margin: "20px"}}>
     <Card.Content>
       <Feed> 
         <Feed.Event>
             <img className="ui avatar image" src={user.image} />
           <Feed.Content>
             <Feed.Summary>
-            {p.text}
+            {user.name}
             </Feed.Summary>
           </Feed.Content>
           {showButtons()}
         </Feed.Event>
       <Card.Content>
+        <h6>{p.text}</h6>
         <Postimg src={p.image}/>
       </Card.Content>
     </Feed>
   </Card.Content>
    <Card.Meta>{`${user.name} is feeling ${p.mood}`}</Card.Meta>
    <Card.Content extra>
-    <p> 
-      <i class="heart icon"/>
-      {`${p.likes} likes`} 
-    </p>
+      <LikesReducer user={user} p={p}/>
   </Card.Content>
+<Comments post={p} user={user}/>
 </Card>
+</div>
 )}
 
 
 export default Post
 
-const Postimg = styled.img`
+export const Postimg = styled.img`
 max-width: 100%;
 max-height: 100%;
 `

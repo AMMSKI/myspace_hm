@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState, useLocation, useContext } from 'react';
-import { propTypes } from 'react-bootstrap/esm/Image';
 import { Card, Form, Dropdown } from 'semantic-ui-react'
 import { AuthContext } from '../providers/AuthProvider';
 import MyButton from './MyButton';
@@ -19,18 +18,11 @@ const moods = [
   {key: "hrrr", text: "hrrr", value: "hrrr"},
 ]
 
-const PostForm = ({id, text, image, mood, showForm, setShowForm}) => {
+const PostForm = ({id, text, image, mood, showForm, setShowForm, updatePosts}) => {
   const [postText, setPostText] = useState(id ? text : "")
   const [postImage, setPostImage] = useState(id ? image : "")
   const [postMood, setPostMood] = useState(id ? mood : "")
   const { user } = useContext(AuthContext)
-  
-  // const getPost = async () => {
-  //   try {
-  //     let res = await axios.get(`/api/users/${user.id}/posts/${id}`)
-      
-  //   }
-  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -46,12 +38,12 @@ const PostForm = ({id, text, image, mood, showForm, setShowForm}) => {
       console.log(res.data);
       ;
       console.log(res.data);
-      setShowForm(!showForm)
-      ;
+      setShowForm(!showForm);
+      updatePosts(res.data);
     }
     else {
       console.log(e)
-      await axios.post(`/api/users/${user.id}/posts/`, post);
+      let res = await axios.post(`/api/users/${user.id}/posts/`, post);
       window.location.reload();
     }
   } 

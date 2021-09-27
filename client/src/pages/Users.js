@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 
 const Users = () => {
   const [users, setUsers] = useState([])
+  // const [userID, setUserID] = useState(null)
 
 
   useEffect(()=>{
@@ -48,7 +49,7 @@ const Users = () => {
       <p>{u.email}</p>
       </Card.Text>
       <MyButton onClick={()=> addFriend(u)}>Add Friend</MyButton>
-      <Link to={{pathname:"/user", user: {u} }}><MyButton>View Profile</MyButton></Link>
+      <Link to={{pathname:`/user/${u.id}`, user: {u} }}><MyButton>View Profile</MyButton></Link>
       </Card.Body>
     </Card>
     </Col>
@@ -58,7 +59,7 @@ const Users = () => {
 
   return (
     <Container  fluid='md' style={{textAlign:'center', marginTop:'10vh'}}>
-      <h1 style={{color:'white'}}>Users</h1>
+      <h1 style={{color:"#1AADB7"}}>Users</h1>
     <Row style={{justifyContent:'space-between'}}>
        {renderUsers()}
     </Row>
