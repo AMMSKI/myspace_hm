@@ -35,13 +35,13 @@ wookiemood = [
     force_alignment: "light",
     image: "https://s3.amazonaws.com/libapps/accounts/81381/images/leia.jpg",
   )
-  4.times do |i|
+  5.times do |i|
     leia.posts.create(text: Faker::Movies::StarWars.quote(character: "leia_organa"), mood: mood[rand(5)], likes: rand(1..100))
   end
 
   leia.posts.create(text: "I love you.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSLvD78P9WF_iXXGfxQvCN2_vwnc0oDAiS-w&usqp=CAU", mood: mood[0], likes: rand(1..100))
 
-  3.times do |i|
+  1.times do |i|
     leia.posts.create(text: Faker::Movies::StarWars.quote(character: "leia_organa"), mood: mood[rand(5)], likes: rand(1..100))
   end
 
@@ -58,9 +58,11 @@ wookiemood = [
   4.times do |i|
     dv.posts.create(text: Faker::Movies::StarWars.quote(character: "anakin_skywalker"), mood: mood[rand(5)], likes: rand(1..100))
   end
+
   4.times do |i|
     dv.posts.create(text: Faker::Movies::StarWars.quote(character: "darth_vader"), mood: mood[rand(5)], likes: rand(1..100))
   end
+
 
 
   kylo = User.create(
@@ -242,7 +244,13 @@ wookiemood = [
     chewie.posts.create(text: Faker::Movies::StarWars.wookiee_sentence, mood: wookiemood[rand(5)], likes: rand(1..100))
   end
 
-  Comment.create(text: "I know.", user_id: 4, post_id: 5)
+  chewie.posts.create(text: "Rwaaag mua rra yooowa akkraag!", image: "https://m.media-amazon.com/images/I/61apt1PZ9eL._AC_SY741_.jpg", mood: wookiemood[rand(5)], likes: rand(1..100))
+
+  Comment.create(text: "I know.", user_id: 4, post_id: 6)
+
+  dv.posts.create(text: "If you're not with me, then you're my enemy!", mood: "hate", likes: 13)
+  Comment.create(text: "Only a sith deals in absolutes.  I will do what I must.", user_id: 6, post_id: 83)
+  Comment.create(text: "You will try.", user_id: 2, post_id: 83)
 
   puts "seeded #{User.all.length} users"
   puts "seeded #{Post.all.length} posts"
