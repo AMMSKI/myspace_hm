@@ -57,7 +57,7 @@ return (
   </Card.Content>
    <Card.Meta>{`${user.name} is feeling ${p.mood}`}</Card.Meta>
    <Card.Content extra>
-      <LikesReducer user={user} p={p}/>
+      <LikesReducer u={user} p={p}/>
   </Card.Content>
 <Comments p={p} u={user}/>
 </Card>

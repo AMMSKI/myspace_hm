@@ -1,12 +1,12 @@
 import axios from "axios";
 import React, { useReducer } from "react";
 
-const LikesReducer = ({user, p}) => {
+const LikesReducer = ({u, p}) => {
 
   const saveLikes = async () => {
   try{
-  let res = await axios.put(`/api/users/${user.id}/posts/${p.id}`, {
-    user_id: user.id,
+  let res = await axios.put(`/api/users/${u.id}/posts/${p.id}`, {
+    user_id: u.id,
     text: p.text,
     image: p.image,
     mood: p.mood,
