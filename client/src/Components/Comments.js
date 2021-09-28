@@ -6,6 +6,7 @@ import { render } from "react-dom";
 import CommentForm from "./CommentForm";
 import MyBabyButton from "./MyBabyButton";
 import { AuthContext } from "../providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 
 
@@ -26,7 +27,7 @@ const Comments = ({p, u}) => {
       console.log(err)
     }
   }
-
+ 
   const deleteComment = async (id) => {
   try {
     await axios.delete(`/api/users/${u.id}/posts/${p.id}/comments/${id}`)
@@ -51,7 +52,9 @@ const Comments = ({p, u}) => {
         <Card.Content>
           <Feed> 
             <Feed.Event>
+            <Link to={{pathname:`/user/${comment.user.id}`}}>
                 <img className="ui avatar image" src={comment.user.image} />
+              </Link>
               <Feed.Content>
                 <Feed.Summary>
                 {comment.user.name}

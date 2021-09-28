@@ -49,8 +49,7 @@ const Users = () => {
       <p>{u.email}</p>
       </Card.Text>
       <MyButton onClick={()=> addFriend(u)}>Add Friend</MyButton>
-      <Link to={{pathname:`/user/${u.id}`, user: {u} } }><MyButton>View Profile</MyButton></Link>
-      {/* thinking I can get this to be a route to a component instead?  And then pass props to the component. */}
+      <Link to={{pathname:`/user/${u.id}`}}><MyButton>View Profile</MyButton></Link>
       </Card.Body>
     </Card>
     </Col>

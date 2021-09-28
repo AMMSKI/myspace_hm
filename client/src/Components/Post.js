@@ -7,6 +7,7 @@ import { AuthContext } from '../providers/AuthProvider'
 import LikesReducer from "./LikesReducer";
 import Comments from "./Comments";
 import CommentForm from "./CommentForm";
+import { Link } from "react-router-dom";
 
 
 
@@ -38,7 +39,9 @@ return (
     <Card.Content>
       <Feed> 
         <Feed.Event>
+        <Link to={{pathname:`/user/${user.id}`}}>
             <img className="ui avatar image" src={user.image} />
+            </Link>
           <Feed.Content>
             <Feed.Summary>
             {user.name}

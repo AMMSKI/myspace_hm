@@ -19,7 +19,7 @@ const User = ({user}) => {
       console.log(err)
     }
   }
-
+ 
       return (
         
       <Container  fluid='md' style={{textAlign:'center', marginTop:'10vh'}}>
