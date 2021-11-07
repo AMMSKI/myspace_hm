@@ -1,5 +1,14 @@
 # README
-# Getting Started
+
+# Project overview 
+
+Social media web app with fun starwars theme. Connect with your friends, post, comment, and like.
+
+# Technology 
+
+React front end using Semantics UI library and styled-components. Ruby on Rails backend with divise token auth
+
+# Clone
 
 TLDR: need to clone with a unique project name and rename database
 
