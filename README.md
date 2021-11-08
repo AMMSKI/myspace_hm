@@ -6,7 +6,7 @@ Social media web app with fun starwars theme. Connect with your friends, post, c
 
 # Technology 
 
-React front end using Semantics UI library and styled-components. Ruby on Rails backend with divise token auth
+React front end using Semantic UI library and styled-components. Ruby on Rails backend with divise token auth
 
 # Clone
 
